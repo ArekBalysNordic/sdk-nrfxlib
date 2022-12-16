@@ -69,7 +69,7 @@
  * to detect that frame and in case of TX - 93us that accounts for a delay of yet unknown origin.
  */
 #define TX_SETUP_TIME 203u ///< Time needed to prepare TX procedure [us]. It does not include TX ramp-up time.
-#define RX_SETUP_TIME 110u ///< Time needed to prepare RX procedure [us]. It does not include RX ramp-up time.
+#define RX_SETUP_TIME 210u ///< Time needed to prepare RX procedure [us]. It does not include RX ramp-up time.
 
 /**
  * @brief States of delayed operations.
