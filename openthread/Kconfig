@@ -37,6 +37,14 @@ endchoice
 
 # OpenThread configuration features sets from Nordic Semiconductor
 
+config OPENTHREAD_PREVIEW
+	bool
+	select EXPERIMENTAL
+	help
+	  Placeholder option to select the preview version of OpenThread stack.
+	  Once it is selected, the preview OpenThread libraries will be used instead of
+	  the last stable ones.
+
 config OPENTHREAD_NORDIC_LIBRARY
 	bool "Nordic library feature sets"
 	depends on !OPENTHREAD_SOURCES

@@ -24,6 +24,13 @@ if(CONFIG_OPENTHREAD_SOURCES)
   set(OPENTHREAD_SYSTEM_H "${ZEPHYR_OPENTHREAD_MODULE_DIR}/examples/platforms/openthread-system.h")
   set(OPENTHREAD_UART_H "${ZEPHYR_OPENTHREAD_MODULE_DIR}/examples/platforms/utils/uart.h")
 
+  # If the preview openthread version is selected, we need to create a new directory for this preview build
+  # to not change the last stable library.
+  if(CONFIG_OPENTHREAD_PREVIEW)
+    set(OPENTHREAD_HEADERS_DST_DIR "${NRFXLIB_DIR}/openthread/include-preview")
+    set(OPENTHREAD_UTILS_DST_DIR "${NRFXLIB_DIR}/openthread/include-preview/utils")
+  endif()
+
   if(CONFIG_OPENTHREAD_BUILD_OUTPUT_STRIPPED)
     foreach(target IN LISTS OPENTHREAD_LIBRARIES)
 
@@ -83,6 +90,10 @@ if (CONFIG_OPENTHREAD_NORDIC_LIBRARY)
     zephyr_library_import("lib${target}" "${OT_LIB_PATH}/lib${target}.a")
   endforeach()
 
+if (CONFIG_OPENTHREAD_PREVIEW)
+  zephyr_include_directories(include-preview)
+else()
   zephyr_include_directories(include)
+endif()
 
 endif()
