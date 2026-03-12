@@ -52,6 +52,15 @@ extern "C" {
 void nrf_802154_platform_timestamper_init(void);
 
 /**
+ * @brief Deinitializes the timestamper platform.
+ *
+ * Releases all platform resources allocated by @ref
+ * nrf_802154_platform_timestamper_init and clears any active hardware
+ * connections owned by the timestamper.
+ */
+void nrf_802154_platform_timestamper_deinit(void);
+
+/**
  * @brief Sets up cross-domain hardware connections necessary to capture a timestamp.
  *
  * This function configures cross-domain hardware connections necessary to capture a timestamp of

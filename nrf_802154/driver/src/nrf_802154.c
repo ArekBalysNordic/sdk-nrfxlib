@@ -204,6 +204,7 @@ void nrf_802154_init(void)
 
 void nrf_802154_deinit(void)
 {
+    nrf_802154_swi_deinit();
     nrf_802154_timer_coord_uninit();
     nrf_802154_temperature_deinit();
     nrf_802154_rsch_uninit();

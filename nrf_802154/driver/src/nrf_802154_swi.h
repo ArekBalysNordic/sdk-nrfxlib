@@ -52,6 +52,11 @@ extern "C" {
 void nrf_802154_swi_init(void);
 
 /**
+ * @brief Deinitializes the SWI module.
+ */
+void nrf_802154_swi_deinit(void);
+
+/**
  *@}
  **/
 

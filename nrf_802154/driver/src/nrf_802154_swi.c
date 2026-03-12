@@ -79,6 +79,17 @@ void nrf_802154_swi_init(void)
     }
 }
 
+void nrf_802154_swi_deinit(void)
+{
+    if (initialized)
+    {
+        IRQn_Type irq_number = nrfx_get_irq_number(NRF_802154_EGU_INSTANCE);
+
+        nrf_802154_irq_disable(irq_number);
+        initialized = false;
+    }
+}
+
 void SWI_IRQHandler(void)
 {
     swi_irq_handler();
